@@ -13,7 +13,7 @@ const Spinner = ({ path = "login" }) => {
     }, 1000);
     count === 0 &&
       navigate('/home', 
-    //   {state: location.pathname,}
+      {state: location.pathname,}
       );
     return () => clearInterval(interval);
   }, [count, navigate, location, path]);
