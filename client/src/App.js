@@ -20,6 +20,9 @@ import Products from './pages/Admin/Products'
 import UpdateProduct from './pages/Admin/UpdateProduct'
 import Search from './pages/Search'
 import ProductDetails from './pages/ProductDetails'
+import Categories from './pages/Categories'
+import CategoryProduct from './pages/CategoryProduct'
+import CartPage from './pages/CartPage'
 // import {ToastContainer} from "react-toastify"
 
 function App() {
@@ -28,6 +31,9 @@ function App() {
       <Routes>
          <Route path='/' element={<HomePage/>}/>
          <Route path='/product/:slug' element={<ProductDetails/>}/>
+         <Route path="/categories" element={<Categories/>}/>
+         <Route path="/cart" element={<CartPage/>}/>
+         <Route path="/category/:slug" element={<CategoryProduct />} />
          <Route path='/search' element={<Search/>}/>
          <Route path='/dashboard' element={<PrivateRoute/>}>
             <Route path="user" element={<Dashboard/>}/>
@@ -51,6 +57,7 @@ function App() {
          <Route path='/contact' element={<Contact/>}/>
          <Route path='/policy' element={<Policy/>}/>
          <Route path="*" element={<PagenotFound/>}/>
+         
       </Routes>
         
      
