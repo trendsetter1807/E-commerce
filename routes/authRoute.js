@@ -1,5 +1,5 @@
 import express from "express";
-import {registerController,loginController,testController, updateProfileController} from '../controllers/authController.js'
+import {registerController,loginController,testController, updateProfileController, getOrdersController, getAllOrdersController, orderStatusController} from '../controllers/authController.js'
 import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
 import { forgotPasswordController } from "../controllers/authController.js";
 
@@ -25,4 +25,9 @@ router.get("/user-auth", requireSignIn, (req, res) => {
 
 router.put('/profile', requireSignIn,updateProfileController)
 
-export default router
+router.get('/orders', requireSignIn, getOrdersController);
+router.get('/all-orders', requireSignIn,isAdmin, getAllOrdersController);
+
+router.put('/order-status/:orderId', requireSignIn,isAdmin,orderStatusController);
+
+export default router;
